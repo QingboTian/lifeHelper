@@ -1,0 +1,20 @@
+<!--pages/pwd/pwd.wxml-->
+<wxs module="filter" src="../../utils/common.wxs"></wxs>
+<view class="container">
+  <i-notice-bar icon="systemprompt" loop>
+    {{notice}}
+  </i-notice-bar>
+  <block wx:for="{{info}}" wx:for-item="item" wx:key="index">
+    <view class="item" bindtap="showHandler" data-index="{{index}}">
+      <i-card title="{{item.name}}" extra="{{item.account}}" thumb="{{item.logo}}">
+        <view slot="content" >{{filter.encode(item.password)}}</view>
+        <view slot="footer"><view style="color:red" catchtap="deleteHandler" data-index="{{index}}">删除</view></view>
+      </i-card>
+    </view>
+  </block>
+
+
+  <view class="item add" bindtap="addHandler">
+    <image class="add-img" src="../../images/add.png"></image>
+  </view>
+</view>

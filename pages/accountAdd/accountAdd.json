@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-message": "../../dist/message/index",
+    "i-input": "../../dist/input/index",
+    "i-panel": "../../dist/panel/index"
+  },
+  "navigationBarTitleText": "添加帐号"
+}

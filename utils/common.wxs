@@ -1,0 +1,13 @@
+var filter = {
+  encode: function (value) {
+    var str = "";
+    for (var i = 0; i < value.length; i++) {
+      str += "*";
+    }
+    return str;
+  }
+}
+
+module.exports = {
+  encode: filter.encode,
+}

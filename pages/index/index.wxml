@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="content">
+    <block wx:for="{{apps}}" wx:for-item="app">
+      <view class="app" bindtap="appHandler" data-id="{{app.id}}" data-url="{{app.url}}">
+        <view class="icon">
+          <image src="{{app.icon}}"></image>
+        </view>
+        <view class="name">{{app.name}}</view>
+      </view>
+    </block>
+    <view class="app" bindtap="handleOpen">
+        <view class="icon">
+          <image src="../../images/me.png"></image>
+        </view>
+        <view class="name">联系我们</view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+/* pages/search/search.wxss */
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin: 0 20rpx;
+  margin-top: 20rpx;
+  width: 710rpx;
+  
+}
+
+.title {
+  text-align: center;
+  color: gray;
+  margin: 20rpx 0;
+}

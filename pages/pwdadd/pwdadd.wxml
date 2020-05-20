@@ -1,0 +1,36 @@
+<!--pages/pwdadd/pwdadd.wxml-->
+<view class="container">
+<i-notice-bar icon="systemprompt" loop>
+    密码生成后请及时进行复制，推荐字符集全选且设置较长的密文长度！
+</i-notice-bar>
+  <i-panel title="字符集" i-class="margin-bottom:20rpx;">
+    <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
+      <i-checkbox wx:for="{{character}}" color="#19be6b" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+      </i-checkbox>
+    </i-checkbox-group>
+  </i-panel>
+  <view style="margin-top:20rpx;">
+    <i-cell-group>
+      <i-cell title="密码长度" is-link>
+        <view slot="footer">
+          <picker bindchange="bindPickerChange" range='{{length}}' value='{{index}}'>
+            <view>
+              {{length[index]}}
+            </view>
+          </picker>
+        </view>
+      </i-cell>
+    </i-cell-group>
+  </view>
+
+  <view style="margin-top:20rpx;" wx:if="{{resultFlag}}">
+    <i-cell-group>
+      <i-cell title="生成结果" bind:click="copy" is-link value="{{result}}"></i-cell>
+    </i-cell-group>
+  </view>
+
+  <view style="margin-top:20rpx">
+    <button type="primary" style="width:710rpx;" bindtap="generalHandler">生成</button>
+  </view>
+  <i-message id="message" />
+</view>

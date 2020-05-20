@@ -1,0 +1,10 @@
+<!--pages/accountAdd/accountAdd.wxml-->
+<view class="container">
+  <i-panel title="">
+    <i-input value="{{ name }}" data-type="name" bind:change="inputHandler" title="帐号名称" autofocus placeholder="请输入帐号标识" maxlength="50" />
+    <i-input value="{{ account }}" data-type="account" bind:change="inputHandler" title="账号" placeholder="请输入帐号" maxlength="50" />
+    <i-input value="{{ password }}" data-type="password" bind:change="inputHandler" title="密码" placeholder="请输入密码" maxlength="50" />
+  </i-panel>
+  <button type="primary" style="margin-top:20rpx; width:710rpx;" bindtap="addHandler">马上添加</button>
+  <i-message id="message" />
+</view>

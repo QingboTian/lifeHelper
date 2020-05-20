@@ -1,0 +1,34 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <i-notice-bar icon="systemprompt" loop>
+    {{notice}}
+  </i-notice-bar>
+  <view class="content">
+    <i-cell-group>
+      <i-cell title="学校" value="{{currentSchool.name}}" is-link bind:click="schoolHandler"></i-cell>
+      <i-cell title="学年" is-link value="{{currentXueNian.name}}" bind:click="xuenianHandler"></i-cell>
+      <i-cell title="学期" is-link value="{{currentXueQi.name}}" bind:click="xueqiHandler"></i-cell>
+    </i-cell-group>
+    <i-panel>
+      <i-input value="{{ stuNum }}" type="number" title="学号" placeholder="请输入你的学号" maxlength="50" data-type="stuNum" bind:change="inputHandler" />
+      <i-input value="{{ pwd }}" title="密码" type="password" placeholder="请输入你的密码" maxlength="50" data-type="pwd" bind:change="inputHandler" />
+    </i-panel>
+  </view>
+
+  <button style="margin:0 20rpx; margin-top:20rpx;width:710rpx; " type="primary" bindtap="searchHandler">立即查询</button>
+  <view wx:if="{{resultFlag}}">
+    <view class="title">查询结果</view>
+    <view>
+      <i-cell-group>
+        <block wx:for="{{result}}" wx:for-item="r">
+          <i-cell title="{{r.kcmc}}" label="{{r.kcxzmc}}" value="{{r.cj}}"></i-cell>
+        </block>
+      </i-cell-group>
+    </view>
+  </view>
+  <view>
+    <i-spin fix size="large" wx:if="{{loadingFlag}}"></i-spin>
+  </view>
+  <i-message id="message" />
+  <i-action-sheet visible="{{ visible }}" actions="{{ actions }}" show-cancel bind:cancel="handleCancel" bind:click="handleClickItem" />
+</view>
